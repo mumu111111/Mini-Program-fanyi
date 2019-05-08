@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<!-- //“到汉语”-语言切换组件 -->
+<view class="container">
+  <view class="change">
+    <navigator url="/pages/change/change" hover-class="view-hover">
+      <block>
+        <text>到{{curLang.chs}}</text>
+        <text class="iconfont icon-down"></text>
+        
+      </block>
+    </navigator>
+  </view>
+
+<!-- //“翻译/译文组件” -->
+
+  <view class="input-area">
+    <text class="iconfont icon-close" hidden="{{hideClearIcon}}"
+          bindtap="onTapClose"></text>
+    <view class="textarea-wrap">
+      <textarea placeholder="请输入要翻译的文本" placeholder-style="color: #8995a1"
+          bindinput="onInput" bindconfirm="onConfirm" value="{{query}}">
+      </textarea>
+    </view>
+
+    <view class="text-area">
+      <view>译文</view>
+      <view class="text-result" wx:for="{{result}}" wx:key="index">
+        <text>{{ item.dst }}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+
+
